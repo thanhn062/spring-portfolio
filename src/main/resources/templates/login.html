@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
     <head>
         <title> Portfolio Login </title>
-        <link rel="stylesheet" href="css/style.css"  />
+        <link th:href="@{/css/style.css}" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
@@ -12,23 +12,23 @@
                   Portfolio Login
                 </div>
                 <div class="card-body">
-                    <div th:if="${param.error}">
+                    <div th:if="${param.error}" class="alert alert-danger" role="alert">
                         Invalid username and password.
                     </div>
-                    <div th:if="${param.logout}">
+                    <div th:if="${param.logout}" class="alert alert-primary" role="alert">
                         You have been logged out.
                     </div>
                     <form th:action="@{/login}" method="post">
                         <div class="form-group">
-                            <label> User Name : </label> 
+                            <label> User Name </label> 
                             <input type="text" name="username" class="form-control"/> 
                         </div>
                         <div class="form-group">
-                            <label> Password: </label>
+                            <label> Password </label>
                             <input type="password" name="password" class="form-control"/> 
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Sign In"/>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary">Sign in</button>
                         </div>
                     </form>
                 </div>
